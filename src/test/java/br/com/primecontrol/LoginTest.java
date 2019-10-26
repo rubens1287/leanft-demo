@@ -1,5 +1,7 @@
 package br.com.primecontrol;
 
+import br.com.primecontrol.pages.Login;
+import br.com.primecontrol.pages.MenuPrincipal;
 import org.testng.annotations.Test;
 
 import core.*;

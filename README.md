@@ -26,12 +26,33 @@ mvn install:install-file -Dfile="C:\Program Files (x86)\Micro Focus\LeanFT\SDK\M
 mvn install:install-file -Dfile="C:\Program Files (x86)\Micro Focus\LeanFT\SDK\Maven\com.hp.lft.verifications-14.53.0.jar" -DpomFile="C:\Program Files (x86)\Micro Focus\LeanFT\SDK\Maven\com.hp.lft.verifications-14.53.0-pom.xml"
 ```
 
-## PAGE OBJECTS
+## COMANDO PARA EXECUTAR O PROJETO
 
-*   Login
-    * [logar](src/main/java/br/com/primecontrol/Login.java)
-*   MenuPrincipal
-    * [validaMenuPrincipal](src/main/java/br/com/primecontrol/MenuPrincipal.java)
+Para executar o projeto, você pode utilizar o maven ou rodar com TestNG via IDE.
+
+```
+mvn test
+```
+
+## RESULTADOS
+
+Resultado no formato HTML
+
+```
+RunResults\runresults.html 
+```
+
+Resultado no formato xml do testng
+
+Acesse o arquivo no diretório
+
+```
+target\surefire-reports\testng-results.xml
+```
+
+
+Obs.: Estas pastas só é gerada a partir da primeira execução.
+
 
 
 ## EMPRESA DESENVOLVEDORA
