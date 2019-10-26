@@ -14,7 +14,7 @@ public class Login extends Base implements Constantes{
     private EditFieldDescription txtSenha =  new EditFieldDescription.Builder().id("senha").build();
     private ButtonDescription btnEntrar = new ButtonDescription.Builder().name("Entrar").build();
     private WebElementDescription msgError = new WebElementDescription.Builder().tagName("DIV").innerText("Problemas com o login do usuário").build();
-    private LinkDescription novoUsuario = new LinkDescription.Builder().innerText("Novo usuário?").build();
+    private LinkDescription novoUsuario = new LinkDescription.Builder().tagName("A").innerText("Novo usuário?").build();
 
     /**
      * Valida se a Tela de Login foi apresentada

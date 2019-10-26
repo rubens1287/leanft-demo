@@ -1,5 +1,6 @@
 package br.com.primecontrol;
 
+import br.com.primecontrol.pages.Cadastro;
 import br.com.primecontrol.pages.Login;
 import br.com.primecontrol.pages.MenuPrincipal;
 import com.hp.lft.report.ReportException;
@@ -12,7 +13,7 @@ public class LoginTest extends Base {
 
     private Login login = new Login();
     private MenuPrincipal menuPrincipal = new MenuPrincipal();
-
+    private Cadastro cadastro = new Cadastro();
 
     @Test
     public void executaLoginComCredenciaisValidas() throws Exception {
@@ -27,12 +28,4 @@ public class LoginTest extends Base {
         login.logar("teste@teste.com","12345678");
         login.mensagemErroLogin();
     }
-
-    @Test
-    public void executaCadastroNovoUsuario() throws GeneralLeanFtException, ReportException {
-        login.validaTelaLogin();
-        login.novoCadastroUsuario();
-    }
-
-
 }
