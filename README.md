@@ -44,8 +44,6 @@ RunResults\runresults.html
 
 Resultado no formato xml do testng
 
-Acesse o arquivo no diretório
-
 ```
 target\surefire-reports\testng-results.xml
 ```
