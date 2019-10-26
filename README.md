@@ -29,9 +29,9 @@ mvn install:install-file -Dfile="C:\Program Files (x86)\Micro Focus\LeanFT\SDK\M
 ## PAGE OBJECTS
 
 *   Login
-    * [logar](src/main/java/br/comprimecontrol/Login.java)
+    * [logar](./src/main/java/br/comprimecontrol/Login.java)
 *   MenuPrincipal
-    * [validaMenuPrincipal](src/main/java/br/comprimecontrol/MenuPrincipal.java)
+    * [validaMenuPrincipal](./src/main/java/br/comprimecontrol/MenuPrincipal.java)
 
 
 ## EMPRESA DESENVOLVEDORA
