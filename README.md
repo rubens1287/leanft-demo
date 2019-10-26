@@ -13,7 +13,7 @@ Descreva abaixo os requisitos de software e hardware que é necessário para exe
 *   Intellij 2017.3
 *   git bash
 
-## INSTALAR PACOTE DE SDK'S DO LEANFT NO MAVEN LOCAL
+## INSTALAR SDK'S DO LEANFT NO MAVEN LOCAL
 
 Copie as linhas de comando abaixo depois abra o aplicativo git bash e cole dentro, depois só pressionar o botão "Enter" para que seja instalado todas as depedências necessárias para usar o leanFT.
 
