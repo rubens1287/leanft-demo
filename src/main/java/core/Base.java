@@ -19,6 +19,8 @@ import org.testng.annotations.DataProvider;
 import com.hp.lft.report.Status;
 import com.hp.lft.unittesting.TestNgUnitTestBase;
 
+import static br.com.primecontrol.constantes.Constantes.URL;
+
 public class Base extends TestNgUnitTestBase {
 
     public static Browser browser;
@@ -46,6 +48,7 @@ public class Base extends TestNgUnitTestBase {
         SDK.init(config);
         Reporter.init();*/
         browser = BrowserFactory.launch(BrowserType.CHROME);
+        browser.navigate(URL);
     }
 
     @AfterMethod(alwaysRun=true)
