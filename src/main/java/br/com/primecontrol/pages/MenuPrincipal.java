@@ -15,6 +15,8 @@ public class MenuPrincipal extends Base implements Constantes {
 
     private LinkDescription lnkSair = new LinkDescription.Builder().innerText("Sair").tagName("A").build();
     private LinkDescription lnkCriarMovimento =  new LinkDescription.Builder().innerText("Criar Movimentação").tagName("A").build();
+    private LinkDescription lnkContas =  new LinkDescription.Builder().innerText("Contas ").tagName("A").build();
+    private LinkDescription sbLnkAdicionar =  new LinkDescription.Builder().innerText("Adicionar").tagName("A").build();
 
     /**
      *  Valida se a página do MenuPrincipal foi apresentada com sucesso.
@@ -38,11 +40,12 @@ public class MenuPrincipal extends Base implements Constantes {
             case "CRIAR MOVIMENTAÇÃO":
                 browser.describe(Link.class, lnkCriarMovimento).click();
                 break;
+            case "ADICIONAR CONTAS":
+                browser.describe(Link.class, lnkContas).click();
+                browser.describe(Link.class, sbLnkAdicionar).click();
+                break;
             default:
                 Assert.fail("Menu não encontrado!");
         }
-
-
-
     }
 }

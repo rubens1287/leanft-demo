@@ -27,9 +27,9 @@ public class CriarMovimentacao {
 
     public void cadastrarMovimentacao() throws GeneralLeanFtException, ReportException {
        if(browser.describe(ListBox.class,cbbConta).exists(10)){
-           Reporter.reportEvent("Cadastrar Movimentacao","Realiza o cadastro de uam movimentação financeira", Status.Passed);
+           Reporter.reportEvent("Cadastrar Movimentacao","Realiza o cadastro de uam movimentação financeira", Status.Passed,browser.getPage().getSnapshot());
        }else{
-           Reporter.reportEvent("Cadastrar Movimentacao","Realiza o cadastro de uam movimentação financeira", Status.Failed);
+           Reporter.reportEvent("Cadastrar Movimentacao","Realiza o cadastro de uam movimentação financeira", Status.Failed,browser.getPage().getSnapshot());
        }
        browser.describe(ListBox.class,cbbConta).select("Conta mesmo nome");
        browser.describe(ListBox.class,cbbTipoMov).select("Despesa");
@@ -42,9 +42,9 @@ public class CriarMovimentacao {
        browser.describe(Button.class,btnSalvar).click();
 
        if(browser.describe(WebElement.class,lblMsgSucesso).exists(10)){
-           Reporter.reportEvent("Cadastrar Movimentacao","Movimetação realizada com sucesso", Status.Passed);
+           Reporter.reportEvent("Cadastrar Movimentacao","Movimetação realizada com sucesso", Status.Passed,browser.getPage().getSnapshot());
        }else{
-           Reporter.reportEvent("Cadastrar Movimentacao","Movimetação realizada com sucesso", Status.Failed);
+           Reporter.reportEvent("Cadastrar Movimentacao","Movimetação realizada com sucesso", Status.Failed,browser.getPage().getSnapshot());
        }
     }
 
