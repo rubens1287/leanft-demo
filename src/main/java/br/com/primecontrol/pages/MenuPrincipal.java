@@ -31,8 +31,11 @@ public class MenuPrincipal extends Base implements Constantes {
            Reporter.reportEvent("Menu Principal","Menu principal apresentado com sucesso", Status.Passed);
        }else{
            Reporter.reportEvent("Menu Principal","Menu principal apresentado com sucesso", Status.Failed);
+           Reporter.endTest();
        }
     }
+
+
 
     public void selecionaMenu(String menu) throws GeneralLeanFtException {
 

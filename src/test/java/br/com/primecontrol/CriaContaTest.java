@@ -20,6 +20,5 @@ public class CriaContaTest extends Base {
         login.logar();
         menuPrincipal.selecionaMenu("Adicionar Contas");
         new CriarConta(browser).cadastrarConta();
-
     }
 }

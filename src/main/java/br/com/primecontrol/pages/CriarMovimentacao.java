@@ -45,6 +45,7 @@ public class CriarMovimentacao {
            Reporter.reportEvent("Cadastrar Movimentacao","Movimetação realizada com sucesso", Status.Passed,browser.getPage().getSnapshot());
        }else{
            Reporter.reportEvent("Cadastrar Movimentacao","Movimetação realizada com sucesso", Status.Failed,browser.getPage().getSnapshot());
+           Reporter.endTest();
        }
     }
 

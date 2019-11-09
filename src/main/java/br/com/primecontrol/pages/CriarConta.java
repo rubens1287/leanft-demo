@@ -5,6 +5,7 @@ import com.hp.lft.report.Reporter;
 import com.hp.lft.report.Status;
 import com.hp.lft.sdk.GeneralLeanFtException;
 import com.hp.lft.sdk.web.*;
+import org.testng.Assert;
 
 public class CriarConta {
 
@@ -20,18 +21,25 @@ public class CriarConta {
 
     public void cadastrarConta() throws GeneralLeanFtException, ReportException {
         if(browser.describe(WebElement.class,lblNome).exists(10)){
-            Reporter.reportEvent("Cadastrar Conta","Realiza o cadastro de nova conta", Status.Passed);
+            Reporter.reportEvent("Cadastrar Conta","Realiza o cadastro de nova conta", Status.Passed,browser.getPage().getSnapshot());
         }else{
-            Reporter.reportEvent("Cadastrar Conta","Realiza o cadastro de novo conta", Status.Failed);
+            Reporter.reportEvent("Cadastrar Conta","Realiza o cadastro de novo conta", Status.Failed,browser.getPage().getSnapshot());
+            Reporter.endTest();
         }
 
-        browser.describe(EditField.class,txtNome).setValue("Contas William 1");
+        browser.describe(EditField.class,txtNome).setValue("Contas William 3");
         browser.describe(Button.class,btnSalvar).click();
 
         if(browser.describe(WebElement.class,lblMsgSucesso).exists(10)){
-            Reporter.reportEvent("Cadastrar Conta","Conta Cadastrado com sucesso!", Status.Passed);
+            Reporter.reportEvent("Cadastrar Conta","Conta Cadastrado com sucesso!", Status.Passed,browser.getPage().getSnapshot());
         }else{
-            Reporter.reportEvent("Cadastrar Conta","Conta Cadastrado com sucesso!", Status.Failed);
+            Reporter.reportEvent("Cadastrar Conta","Conta Cadastrado com sucesso!", Status.Failed,browser.getPage().getSnapshot());
+            Assert.fail();
         }
+
+        Table contaTable = browser.describe(Table.class, new TableDescription.Builder()
+                .id("tabelaContas").build());
+
+        contaTable.findRowWithCellText("Contas William 3");
     }
 }
