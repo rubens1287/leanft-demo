@@ -4,6 +4,7 @@ import com.hp.lft.report.ReportException;
 import com.hp.lft.report.Reporter;
 import com.hp.lft.report.Status;
 import com.hp.lft.sdk.GeneralLeanFtException;
+import com.hp.lft.sdk.RegExpProperty;
 import com.hp.lft.sdk.web.*;
 import org.testng.Assert;
 
@@ -19,7 +20,7 @@ public class CriarConta {
         this.browser = browser;
     }
 
-    public void cadastrarConta() throws GeneralLeanFtException, ReportException {
+    public void cadastrarConta() throws GeneralLeanFtException, ReportException, CloneNotSupportedException {
         if(browser.describe(WebElement.class,lblNome).exists(10)){
             Reporter.reportEvent("Cadastrar Conta","Realiza o cadastro de nova conta", Status.Passed,browser.getPage().getSnapshot());
         }else{
@@ -27,7 +28,7 @@ public class CriarConta {
             Reporter.endTest();
         }
 
-        browser.describe(EditField.class,txtNome).setValue("Contas William 3");
+        browser.describe(EditField.class,txtNome).setValue("Rubens 2");
         browser.describe(Button.class,btnSalvar).click();
 
         if(browser.describe(WebElement.class,lblMsgSucesso).exists(10)){
@@ -37,9 +38,28 @@ public class CriarConta {
             Assert.fail();
         }
 
-        Table contaTable = browser.describe(Table.class, new TableDescription.Builder()
-                .id("tabelaContas").build());
 
-        contaTable.findRowWithCellText("Contas William 3");
+        Table contaTable1 = browser.describe(Table.class, new TableDescription.Builder()
+                .columnHeaders(new String[]{"Con.*"}).build());
+
+        Table contaTable = browser.describe(Table.class, new TableDescription.Builder()
+                .id(new RegExpProperty("tabelaContas")).build());
+
+
+//        Table contaTable = browser.describe(Table.class, new TableDescription.Builder()
+//                .id("tabelaContas").build());
+
+        TableDescription table = new TableDescription.Builder().id(new RegExpProperty("tabelaContas")).build();
+
+        //TableRow row = contaTable.findRowWithCellText("William");
+
+        for (WebElement td : contaTable.findChildren(WebElement.class, new WebElementDescription.Builder()
+                .tagName("TD").build())) {
+            td.highlight();
+            System.out.println(td.getInnerText());
+        }
+
+
+        contaTable.findRowWithCellText("Contas William 4");
     }
 }

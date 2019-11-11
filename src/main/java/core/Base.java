@@ -1,8 +1,12 @@
 package core;
 
 import java.lang.reflect.Method;
+import java.net.URI;
 import java.util.Iterator;
 
+import com.hp.lft.report.Reporter;
+import com.hp.lft.sdk.ModifiableSDKConfiguration;
+import com.hp.lft.sdk.SDK;
 import com.hp.lft.sdk.web.Browser;
 import com.hp.lft.sdk.web.BrowserFactory;
 import com.hp.lft.sdk.web.BrowserType;
@@ -27,7 +31,11 @@ public class Base extends TestNgUnitTestBase {
     
     @BeforeSuite(alwaysRun=true)
     public void baseBeforeSuite() throws Exception{
-        suiteSetup();
+        //suiteSetup();
+        ModifiableSDKConfiguration config = new ModifiableSDKConfiguration();
+        config.setServerAddress(new URI("ws://localhost:5095"));
+        SDK.init(config);
+        Reporter.init();
     }
 
     @BeforeClass(alwaysRun=true)
@@ -43,10 +51,7 @@ public class Base extends TestNgUnitTestBase {
         String[] context = { ctx.getSuite().getName(), ctx.getName(), this.getClass().getName(), methodName };
         testName.set(methodName);
         testSetup(context);
-        /*ModifiableSDKConfiguration config = new ModifiableSDKConfiguration();
-        config.setServerAddress(new URI("ws://localhost:5095"));
-        SDK.init(config);
-        Reporter.init();*/
+
         browser = BrowserFactory.launch(BrowserType.CHROME);
         browser.navigate(URL);
     }

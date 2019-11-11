@@ -15,7 +15,7 @@ public class CriaContaTest extends Base {
     private MenuPrincipal menuPrincipal  = new MenuPrincipal();
 
     @Test
-    public void executaCadastroNovaConta() throws GeneralLeanFtException, ReportException {
+    public void executaCadastroNovaConta() throws GeneralLeanFtException, ReportException, CloneNotSupportedException {
         login.validaTelaLogin();
         login.logar();
         menuPrincipal.selecionaMenu("Adicionar Contas");
